@@ -22,6 +22,8 @@ let grid;
     grid = [['X','X','X'],
             [' ',' ',' '],
             [' ',' ',' ']]
+
+
 // console.log(grid)
 // debugger
 // console.log(TTT.checkWin(grid))

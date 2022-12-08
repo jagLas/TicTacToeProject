@@ -51,8 +51,15 @@ class TTT {
   }
 
   static placeMove() {
+    //set the grid to display move and render screen
     Screen.setGrid(this.cursor.row, this.cursor.col, this.playerTurn);
     Screen.render();
+
+    //checks if there is a winner
+    let winner = TTT.checkWin(Screen.grid);
+    if(winner){
+      TTT.endGame(winner);
+    }
   }
 
   static checkWin(grid) {
