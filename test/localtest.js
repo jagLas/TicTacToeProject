@@ -9,33 +9,34 @@ let grid;
             [' ',' ',' '],
             [' ',' ',' ']]
 
-// //   it('recognizes horizontal wins', function () {
+//   it('recognizes horizontal wins', function () {
 
-//     grid = [['X','X','X'],
-//             [' ',' ',' '],
-//             [' ',' ',' ']]
-// console.log(grid)
-// console.log(TTT.checkWin(grid))
+    grid = [['X','X','X'],
+            [' ',' ',' '],
+            [' ',' ',' ']]
+console.log(grid)
+debugger
+console.log(TTT.checkWin(grid))
 
-// //     expect(TTT.checkWin(grid)).to.equal('X');
+//     expect(TTT.checkWin(grid)).to.equal('X');
 
-//     grid = [[' ',' ',' '],
-//             ['O','O','O'],
-//             [' ',' ',' ']]
+    grid = [[' ',' ',' '],
+            ['O','O','O'],
+            [' ',' ',' ']]
 
-// console.log(grid)
-// console.log(TTT.checkWin(grid))
-// //     expect(TTT.checkWin(grid)).to.equal('O');
-
-
-//     grid = [[' ',' ',' '],
-//             [' ',' ',' '],
-//             ['X','X','X']]
+console.log(grid)
+console.log(TTT.checkWin(grid))
+//     expect(TTT.checkWin(grid)).to.equal('O');
 
 
-// console.log(grid)
-// console.log(TTT.checkWin(grid))
-// //     expect(TTT.checkWin(grid)).to.equal('X');
+    grid = [[' ',' ',' '],
+            [' ',' ',' '],
+            ['X','X','X']]
+
+
+console.log(grid)
+console.log(TTT.checkWin(grid))
+//     expect(TTT.checkWin(grid)).to.equal('X');
 
 
 //   it('recognizes vertical wins', function () {

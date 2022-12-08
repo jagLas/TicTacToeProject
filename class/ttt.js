@@ -49,11 +49,13 @@ class TTT {
     }
 
     //checks each row for wins
-    for (let i = 0; i < 3; i++) {
-      let winner = checkRow(grid[i]);
-      if (winner === 'X' || winner ==='O'){
-        return winner;
-      };
+    function checkAllRows(grid) {
+      for (let i = 0; i < 3; i++) {
+        let winner = checkRow(grid[i]);
+        if (winner === 'X' || winner ==='O'){
+          return winner;
+        };
+      }
     }
 
     function turnColsToRows (grid) {
@@ -73,12 +75,41 @@ class TTT {
       return cols;
     }
 
-    turnColsToRows(grid)
+    function makeDiagnols (grid) {
+      let cols = [];
+      let length = grid.length;
+
+      for (let col = 0; col < length; col ++) {
+        let column = [];
+
+        for (let row = 0; row < length; row++) {
+          column.push(grid[row][col]);
+        }
+
+        cols.push(column);
+      }
+
+      return cols;
+    }
+
+    //checks for horizontal wins
+    let winner = checkAllRows(grid);
+    if (winner) {
+      return winner;
+    }
+
+    //checks each column for a win
+    winner = checkAllRows(turnColsToRows(grid));
+    if (winner) {
+      return winner;
+    }
+
 
     // Return 'X' if player X wins
     // Return 'O' if player O wins
     // Return 'T' if the game is a tie
     // Return false if the game has not ended
+
     return false;
   }
 
