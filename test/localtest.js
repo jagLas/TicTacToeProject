@@ -99,7 +99,8 @@ let grid;
 //             ['X','O','O'],
 //             ['O','X','O']]
 
-//     expect(TTT.checkWin(grid)).to.equal('T');
+    TTT.checkWin(grid)
+//it should equal 'T'
 
 //   });
 

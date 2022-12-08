@@ -29,8 +29,12 @@ class TTT {
   }
 
   static checkWin(grid) {
+    // Return 'X' if player X wins
+    // Return 'O' if player O wins
+    // Return 'T' if the game is a tie
+    // Return false if the game has not ended
 
-    //checks an array to see if all are one mark
+    //checks an array to see if all are of one mark
     function checkRow(row) {
 
       let xMarks = row.filter(square => {
@@ -58,6 +62,7 @@ class TTT {
       }
     }
 
+    //take the grid and makes each column into rows by reflecting over main diagonal
     function turnColsToRows (grid) {
       let cols = [];
       let length = grid.length;
@@ -75,7 +80,7 @@ class TTT {
       return cols;
     }
 
-    //makes an array of the diagnols
+    //makes a 2D array of the diagnols
     function makeDiagnols (grid) {
       let diagonals = [];
       let length = grid.length;
@@ -93,6 +98,20 @@ class TTT {
       diagonals.push(diagonal);
 
       return diagonals;
+    }
+
+    //checks for Ties
+    function checkTies(grid) {
+      //finds if there is an empty square and returns false if there is one and true if there isn't
+      for (let row = 0; row < grid.length; row++){
+        for (let col = 0; col < grid.length; col++){
+          let square = grid[row][col];
+          if (square === ' ') {
+            return false;
+          }
+        }
+      }
+      return true;
     }
 
     //checks for horizontal wins
@@ -113,10 +132,10 @@ class TTT {
       return winner;
     }
 
-    // Return 'X' if player X wins
-    // Return 'O' if player O wins
-    // Return 'T' if the game is a tie
-    // Return false if the game has not ended
+    if (checkTies(grid)) {
+      return 'T';
+    } 
+
 
     return false;
   }
