@@ -23,10 +23,11 @@ class TTT {
     Screen.addCommand('down', 'move cursor down', TTT.downCommand.bind(this));
     Screen.addCommand('left', 'move cursor left', TTT.leftCommand.bind(this));
     Screen.addCommand('right', 'move cursor right', TTT.rightCommand.bind(this));
+    Screen.addCommand('space', 'place an X or an O', TTT.placeMove.bind(this));
 
     //render screen to begin
     Screen.render();
-
+    Screen.printCommands();
   }
 
   static upCommand() {
@@ -46,6 +47,11 @@ class TTT {
 
   static rightCommand() {
     this.cursor.right();
+    Screen.render();
+  }
+
+  static placeMove() {
+    Screen.setGrid(this.cursor.row, this.cursor.col, this.playerTurn);
     Screen.render();
   }
 
