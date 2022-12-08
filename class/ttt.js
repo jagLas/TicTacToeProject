@@ -18,12 +18,13 @@ class TTT {
     Screen.setGridlines(true);
     Screen.setBackgroundColor(0, 0, this.cursor.cursorColor);
 
-    // Replace this with real commands
+    // Section for commands
     Screen.addCommand('up', 'move cursor up', TTT.upCommand.bind(this));
     Screen.addCommand('down', 'move cursor down', TTT.downCommand.bind(this));
     Screen.addCommand('left', 'move cursor left', TTT.leftCommand.bind(this));
     Screen.addCommand('right', 'move cursor right', TTT.rightCommand.bind(this));
 
+    //render screen to begin
     Screen.render();
 
   }
