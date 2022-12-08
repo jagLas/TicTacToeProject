@@ -16,44 +16,36 @@ class TTT {
     // Initialize a 3x3 tic-tac-toe grid
     Screen.initialize(3, 3);
     Screen.setGridlines(true);
+    Screen.setBackgroundColor(0, 0, this.cursor.cursorColor);
 
     // Replace this with real commands
     Screen.addCommand('up', 'move cursor up', TTT.upCommand.bind(this));
     Screen.addCommand('down', 'move cursor down', TTT.downCommand.bind(this));
     Screen.addCommand('left', 'move cursor left', TTT.leftCommand.bind(this));
     Screen.addCommand('right', 'move cursor right', TTT.rightCommand.bind(this));
-    Screen.addCommand('t', 'test command (remove)', TTT.testCommand);
 
     Screen.render();
-  }
 
-  // Remove this
-  static testCommand() {
-    console.log("TEST COMMAND");
   }
 
   static upCommand() {
     this.cursor.up();
-    console.log(this.cursor.row)
-    console.log(this.cursor.col)
+    Screen.render();
   }
 
   static downCommand() {
     this.cursor.down();
-    console.log(this.cursor.row)
-    console.log(this.cursor.col)
+    Screen.render();
   }
 
   static leftCommand() {
     this.cursor.left();
-    console.log(this.cursor.row)
-    console.log(this.cursor.col)
+    Screen.render();
   }
 
   static rightCommand() {
     this.cursor.right();
-    console.log(this.cursor.row)
-    console.log(this.cursor.col)
+    Screen.render();
   }
 
   static checkWin(grid) {

@@ -10,7 +10,7 @@ class Cursor {
     this.col = 0;
 
     this.gridColor = 'black';
-    this.cursorColor = 'yellow';
+    this.cursorColor = 'blue';
 
   }
 
@@ -23,26 +23,38 @@ class Cursor {
   }
 
   up() {
+
     if (this.row > 0) {
+      this.resetBackgroundColor();
       this.row -= 1;
-    }
+      this.setBackgroundColor();
+    }    
   }
 
   down() {
     if (this.row < this.numRows - 1 ) {
-      this.row += 1;
+      this.resetBackgroundColor();
+      this.row += 1;    
+      this.setBackgroundColor();
     }
+
   }
 
   left() {
+
+
     if (this.col > 0) {
+      this.resetBackgroundColor();
       this.col -= 1;
+      this.setBackgroundColor();
     }
   }
 
   right() {
     if (this.col < this.numCols - 1) {
+      this.resetBackgroundColor();
       this.col += 1;
+      this.setBackgroundColor();
     }
   }
 
