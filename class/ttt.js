@@ -30,11 +30,56 @@ class TTT {
 
   static checkWin(grid) {
 
+    //checks an array to see if all are one mark
+    function checkRow(row) {
+
+      let xMarks = row.filter(square => {
+        return square.toLowerCase() === 'x'
+      })
+
+      let oMarks = row.filter(square => {
+        return square.toLowerCase() === 'o'
+      })
+
+      if (xMarks.length === grid.length) {
+        return 'X';
+      } else if (oMarks.length === grid.length) {
+        return 'O';
+      }
+    }
+
+    //checks each row for wins
+    for (let i = 0; i < 3; i++) {
+      let winner = checkRow(grid[i]);
+      if (winner === 'X' || winner ==='O'){
+        return winner;
+      };
+    }
+
+    function turnColsToRows (grid) {
+      let cols = [];
+      let length = grid.length;
+
+      for (let col = 0; col < length; col ++) {
+        let column = [];
+
+        for (let row = 0; row < length; row++) {
+          column.push(grid[row][col]);
+        }
+
+        cols.push(column);
+      }
+
+      return cols;
+    }
+
+    turnColsToRows(grid)
+
     // Return 'X' if player X wins
     // Return 'O' if player O wins
     // Return 'T' if the game is a tie
     // Return false if the game has not ended
-
+    return false;
   }
 
   static endGame(winner) {
