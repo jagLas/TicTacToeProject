@@ -28,7 +28,6 @@ class TTT {
     //render screen to begin
     Screen.setMessage(`It is Player ${this.playerTurn}'s turn`);
     Screen.render();
-    Screen.printCommands();
   }
 
   static upCommand() {
