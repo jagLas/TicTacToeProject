@@ -19,9 +19,9 @@ let grid;
 
 // //   it('recognizes horizontal wins', function () {
 
-//     grid = [['X','X','X'],
-//             [' ',' ',' '],
-//             [' ',' ',' ']]
+    grid = [['X','X','X'],
+            [' ',' ',' '],
+            [' ',' ',' ']]
 // console.log(grid)
 // debugger
 // console.log(TTT.checkWin(grid))

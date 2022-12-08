@@ -114,30 +114,23 @@ class TTT {
       return true;
     }
 
-    //checks for horizontal wins
-    let winner = checkAllRows(grid);
-    if (winner) {
-      return winner;
-    }
 
-    //checks each column for a win
-    winner = checkAllRows(turnColsToRows(grid));
-    if (winner) {
-      return winner;
-    }
+    let winner = (() => {
 
-    //checks the diaganols for a winner
-    winner = checkAllRows(makeDiagnols(grid));
-    if (winner) {
-      return winner;
-    }
+      if (checkAllRows(grid)){  //checks rows
+        return checkAllRows(grid);
+      } else if (checkAllRows(turnColsToRows(grid))) {  //checks columns
+        return checkAllRows(turnColsToRows(grid));
+      } else if (checkAllRows(makeDiagnols(grid))) {  //checks diaganols
+        return checkAllRows(makeDiagnols(grid)); 
+      } else if (checkTies(grid)){  //checks ties
+        return 'T';
+      } else {
+        return false; //returns false if none of those
+      }
+    })()
 
-    if (checkTies(grid)) {
-      return 'T';
-    } 
-
-
-    return false;
+    return winner;
   }
 
   static endGame(winner) {
