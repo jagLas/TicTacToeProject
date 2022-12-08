@@ -5,7 +5,7 @@ class TTT {
 
   constructor() {
 
-    this.playerTurn = "O";
+    this.playerTurn = "X";
 
     this.grid = [[' ',' ',' '],
                  [' ',' ',' '],
@@ -26,6 +26,7 @@ class TTT {
     Screen.addCommand('space', 'place an X or an O', TTT.placeMove.bind(this));
 
     //render screen to begin
+    Screen.setMessage(`It is Player ${this.playerTurn}'s turn`);
     Screen.render();
     Screen.printCommands();
   }
@@ -53,6 +54,13 @@ class TTT {
   static placeMove() {
     //set the grid to display move and render screen
     Screen.setGrid(this.cursor.row, this.cursor.col, this.playerTurn);
+    
+    if (this.playerTurn === 'O') {
+      this.playerTurn = 'X';
+    } else {
+      this.playerTurn = 'O';
+    }
+    Screen.setMessage(`It is Player ${this.playerTurn}'s turn`);
     Screen.render();
 
     //checks if there is a winner
@@ -60,6 +68,8 @@ class TTT {
     if(winner){
       TTT.endGame(winner);
     }
+
+
   }
 
   static checkWin(grid) {
