@@ -48,9 +48,9 @@ class TTT {
       }
     }
 
-    //checks each row for wins
+    //checks each row for wins. Can be used with modified arrays to check vertical and diagnols
     function checkAllRows(grid) {
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < grid.length; i++) {
         let winner = checkRow(grid[i]);
         if (winner === 'X' || winner ==='O'){
           return winner;
@@ -75,21 +75,24 @@ class TTT {
       return cols;
     }
 
+    //makes an array of the diagnols
     function makeDiagnols (grid) {
-      let cols = [];
+      let diagonals = [];
       let length = grid.length;
 
-      for (let col = 0; col < length; col ++) {
-        let column = [];
-
-        for (let row = 0; row < length; row++) {
-          column.push(grid[row][col]);
-        }
-
-        cols.push(column);
+      let diagonal = [];
+      for (let col = 0, row = 0; col < length; col++, row++) {
+        diagonal.push(grid[row][col]);
       }
+      diagonals.push(diagonal);
 
-      return cols;
+      diagonal = [];
+      for (let col = 0, row = length - 1; col < length; col++, row--) {
+        diagonal.push(grid[row][col]);
+      }
+      diagonals.push(diagonal);
+
+      return diagonals;
     }
 
     //checks for horizontal wins
@@ -104,6 +107,11 @@ class TTT {
       return winner;
     }
 
+    //checks the diaganols for a winner
+    winner = checkAllRows(makeDiagnols(grid));
+    if (winner) {
+      return winner;
+    }
 
     // Return 'X' if player X wins
     // Return 'O' if player O wins
